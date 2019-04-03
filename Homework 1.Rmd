@@ -4,6 +4,12 @@ output: html_notebook
 ---
 
 ```{r}
-# New
+library(tidyverse)
+library(modelr)
+library(skimr)
+?ISLR::Auto
+Data <- ISLR::Auto
+clean_names()
+
 ```
 
