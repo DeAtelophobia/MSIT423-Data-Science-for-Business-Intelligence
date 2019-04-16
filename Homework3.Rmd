@@ -1,0 +1,35 @@
+---
+title: "Homework3"
+author: "De Lu"
+date: "April 15, 2019"
+output: html_document
+---
+
+```{r}
+auto = read.table("http://www-bcf.usc.edu/~gareth/ISL/Auto.data",
+header=T, na.strings="?")
+auto$origin = factor(auto$origin, 1:3, c("US", "Europe", "Japan"))
+```
+(a)
+
+```{r}
+fit = lm(mpg~weight+year+origin, auto)
+summary(fit)
+plot(fit)
+```
+(b) According to the diagnostic plots, the linear model is 
+
+```{r}
+fit2 = lm(log(mpg)~origin+log(weight)+year+I(year)^2,auto)
+summary(fit2)
+plot(fit2)
+```
+(c) As we can see, R square is high, so I think this model is beter than the previous one.
+
+```{r}
+fit3 <- lm(log(mpg)~year, auto)
+summary(fit3)
+plot(fit3)
+plot(auto$mpg,auto$year)
+```
+(d) The effect of year on log(mpg) is linear; 
